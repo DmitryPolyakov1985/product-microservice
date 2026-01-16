@@ -4,15 +4,17 @@ spring:
 
   datasource:
 #    url: jdbc:postgresql://localhost:5432/productdb
-    url: jdbc:postgresql://ep-lively-shape-ah0gs78k-pooler.c-3.us-east-1.aws.neon.tech/product?sslmode=require&channel_binding=require
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:mysql://localhost:3307/testing
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
   jpa:
-    database: POSTGRESQL
     show-sql: true
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        format_sql: true
 
 server:
   port: 8081
